@@ -1,0 +1,228 @@
+    1  ping 8.8.8.8
+    2  ip a
+    3  cat /etc/resolv.conf 
+    4  cd /etc/sysconfig/network-scripts/
+    5  ll
+    6  cat ifcfg-enp0s3
+    7  cat ifcfg-enp0s8 
+    8  cd
+    9  ll
+   10  rm -fr anaconda-ks.cfg 
+   11  ll
+   12  ifconfig
+   13  ip a
+   14  yum install -y net-tools
+   15  yum install -y wget
+   16  setenforce 0
+   17  sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+   18  cat /etc/selinux/config
+   19  systemctl stop firewalld && systemctl disable firewalld
+   20  systemctl status firewalld
+   21  reboot
+   22  yum install -y xorg-x11-xauth
+   23  yum install -y dbus-x11
+   24  yum install -y fontconfig
+   25  yum install -y fonts-korean
+   26  fc-cache -r
+   27  cd /usr/share/fonts/
+   28  ll
+   29  wget http://cdn.naver.com/naver/NanumFont/fontfiles/NanumFont_TTF_ALL.zip
+   30  unzip NanumFont_TTF_ALL.zip -d NanumFont
+   31  yum install -y unzip
+   32  unzip NanumFont_TTF_ALL.zip -d NanumFont
+   33  rm -f NanumFont_TTF_ALL.zip
+   34  fc-cache -r
+   35  cd
+   36  ll
+   37  reboot
+   38  yum install -y epel-release
+   39  yum install -y nmon
+   40  nmon
+   41  yum install -y firefox
+   42  yum install -y gedit
+   43  yum install -y gnome-system-monitor
+   44  yum install -y nautilus
+   45  reboot
+   46  gnome-system-monitor 
+   47  gnome-
+   48  gnome-system-monitor 
+   49  vi ~/.bashrc
+   50  nautilus
+   51  vi ~/.bashrc
+   52  vi /etc/hosts
+   53  ip a
+   54  mkdir -p /opt/java && cd $_
+   55  ll
+   56  tar xfz jdk-8u333-linux-x64.tar.gz 
+   57  ll
+   58  chown -R root:root jdk1.8.0_333
+   59  ll
+   60  rm -fr jdk-8u333-linux-x64.tar.gz
+   61  ll
+   62  ln -s jdk1.8.0_333 jdk8
+   63  ll
+   64  cd
+   65  cd /opt/java/jdk8
+   66  ll
+   67  pwd
+   68  vi ~/.bash_profile 
+   69  cd
+   70  . .bash_profile
+   71  java -version
+   72  cat .bash_profile 
+   73  mkdir /app; cd $_
+   74  cd
+   75  ll /mnt
+   76  mount /dev/sr0 /mnt
+   77  cd /mnt
+   78  ll
+   79  tar xfz spring-tool-suite-4-4.15.0.RELEASE-e4.24.0-linux.gtk.x86_64.tar.gz -C /app/
+   80  cd /app
+   81  ll
+   82  ln sts-4.15.0.RELEASE sts
+   83  ln -s sts-4.15.0.RELEASE sts
+   84  cd sts
+   85  ll
+   86  ./SpringToolSuite4 
+   87  pwd
+   88  cd
+   89  ll
+   90  mkdir .sts-workspace
+   91  alias sts='/app/sts/SpringToolSuite4 > /dev/null 2>&1 &'
+   92  sts
+   93  cd .sts-workspace/
+   94  ll
+   95  ll -a
+   96  cd
+   97  vi .bashrc
+   98  exit
+   99  firefox
+  100  poweroff
+  101  ㅣㅣ
+  102  ll
+  103  ll Downloads/
+  104  ll
+  105  rm -fr Downloads/
+  106  ll
+  107  sts
+  108  poweroff
+  109  hostnamectl set-hostname controller
+  110  vi /etc/hosts
+  111  cd /etc/sysconfig/network-scripts
+  112  vi ifcfg-enp0s3
+  113  vi ifcfg-enp0s8
+  114  poweroff
+  115  hostname
+  116  cat /etc/hosts
+  117  ip a
+  118  ping 8.8.8.8
+  119  java -version
+  120  vi .bash_profile 
+  121  exit
+  122  java -version
+  123  poweroff
+  124  ping 8.8.8.8
+  125  yum install -y java-11-openjdk-devel.x86_64
+  126  java -version
+  127   curl -sSL https://get.docker.com | sh
+  128  docker image ls
+  129  systemctl enable --now docker
+  130   systemctl status docker
+  131  yum install -y bash-completion
+  132  gnome-system-monitor
+  133  pwd
+  134  id
+  135  cat <<EOF > /etc/yum.repos.d/wandisco-git.repo
+  136  [wandisco-git]
+  137  name=Wandisco GIT Repository
+  138  baseurl=http://opensource.wandisco.com/centos/7/git/x86_64/
+  139  enabled=1
+  140  gpgcheck=1
+  141  gpgkey=http://opensource.wandisco.com/RPM-GPG-KEY-WANdisco
+  142  EOF
+  143  rpm --import http://opensource.wandisco.com/RPM-GPG-KEY-WANdisco
+  144  # yum install -y git
+  145  yum install -y git
+  146  git --version
+  147  git config --global user.name "devops"
+  148  git config --global user.email "devops@jadecross.com"
+  149  git config --global credential.helper cache
+  150  cat ~/.gitconfig
+  151  cd ~/lab/projects/guestbook/
+  152  ll
+  153  git init
+  154  ll
+  155   ll --group-directories-first .git
+  156  git status
+  157  cd ~/lab/projects/guestbook
+  158  git add .
+  159  git status
+  160   cd ~/lab/projects/guestbook/
+  161  sed -i --follow-symlinks 's/<title>방명록 (K8S)<\/title>/<title>GUESTBOOK<\/title>/g' 
+  162  git status
+  163  git commit -m "[INITIAL] 프로젝트 최초 등록"
+  164  git status
+  165  git log
+  166  git show 71ebdc4d88d45cf623182c03f78eb28921bfdbb6
+  167  git show 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
+  168  git remote add origin https://github.com/kysoo0729/guestbook.git
+  169  git remote
+  170  git remote -v
+  171  git push origin master
+  172  cd ~/lab/projects/guestbook/
+  173  mkdir -p src/test/java/com/jadecross/guestbook
+  174  vi src/test/java/com/jadecross/guestbook/PostTest.java
+  175  ls
+  176  cd lab
+  177  cd jenkins/
+  178  java -jar jenkins.war --httpPort=8080
+  179  cd lab/projects/guestbook
+  180  ls
+  181  cd target/
+  182  ls
+  183  ls -l
+  184  cd ..
+  185  docker login
+  186  ls
+  187   docker image build -t qkrdud2002/cicd_guestbook:1.0 --build-arg VERSION=1.0 .
+  188  ls
+  189  docker image push qkrdud2002/cicd_guestbook:1.0
+  190  cd src/
+  191  ls
+  192  cd test/java/com/
+  193  ls
+  194  cd jadecross/
+  195  ls
+  196  cd guestbook/
+  197  ls
+  198  vi PostTest.java
+  199  ls
+  200  vi PostTest.java
+  201  git add src/test/java/com/jadecross/guestbook/PostTest.java
+  202  cd ..
+  203  git add src/test/java/com/jadecross/guestbook/PostTest.java
+  204  git commit -m "[ADD] TestCase - PostTest.java"
+  205  git push origin master
+  206  vi src/test/java/com/jadecross/guestbook/PostTest.java 
+  207  git add src/test/java/com/jadecross/guestbook/PostTest.java
+  208  git push origin master
+  209  git commit -m "[ADD] TestCase - PostTest.java"
+  210  git push origin master
+  211  vi src/test/java/com/jadecross/guestbook/PostTest.java 
+  212  vi 
+  213  vi /root/.jenkins/workspace/guestbook@2/src/test/java/com/jadecross/guestbook/PostTest.java
+  214* cd  src/test/java/com/jadecross/guestbook/PostTest.java
+  215* 
+  216  vi /src/test/java/com/jadecross/guestbook/PostTest.java
+  217  cd  /src/test/java/com/jadecross/guestbook
+  218  cd  src/test/java/com/jadecross/guestbook
+  219  ls
+  220  rm .PostTest.java.swp
+  221  vi /src/test/java/com/jadecross/guestbook/PostTest.java
+  222  vi PostTest.java
+  223  cd ..
+  224  git add src/test/java/com/jadecross/guestbook/PostTest.java
+  225  git commit -m "[ADD] TestCase2 - PostTest.java"
+  226  git push origin master
+  227  history
+  228  history > his.txt
