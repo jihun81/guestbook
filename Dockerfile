@@ -2,7 +2,7 @@ FROM openjdk:8-alpine
 
 ARG VERSION
 
-//COPY target/guestbook-0.0.1-SNAPSHOT.jar /app/guestbook.jar
+COPY target/guestbook-0.0.1-SNAPSHOT.jar /app/guestbook.jar
 
 LABEL maintainer="Jihun qkrdud2002<coordinatorj@jadecross.com>" \
       title="Guestbook App" \
