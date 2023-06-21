@@ -133,7 +133,7 @@ pipeline {
             slackSend(tokenCredentialId: 'slack-token'
             , channel: '#교육'
             , color: 'good'
-            , message: "${JOB_NAME} (${BUILD_NUMBER}) 빌드가 끝났습니다. Details: (<${BUILD_URL} | here >)")
+            , message: "${JOB_NAME} (${BUILD_NUMBER}) 빌드가 끝났습니다... Details: (<${BUILD_URL} | here >)")
         }
         success {
             slackSend(tokenCredentialId: 'slack-token'
